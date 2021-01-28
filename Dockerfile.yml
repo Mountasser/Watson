@@ -1,0 +1,9 @@
+FROM openjdk:8-jdk-alpine
+
+COPY target/WtasonLiveBot-1.0-SNAPSHOT.jar WtasonLiveBot.jar
+COPY ibm-credentials.env ibm-credentials.env
+
+RUN export IBM_CREDENTIALS_FILE=/
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "/WtasonLiveBot.jar"]
